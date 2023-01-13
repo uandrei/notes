@@ -1,1 +1,0 @@
-SSL/TLS cert validation - http://crt.sh/ - good for identifying subdomains
