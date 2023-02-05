@@ -40,3 +40,20 @@ netstat -i
 
 find / -perm a=x -type f 2>/dev/null
 find / -perm -u=s -type f 2>/dev/null => Find files with the SUID bit, which allows us to run the file with a higher privilege level than the current user.
+
+https://book.hacktricks.xyz/linux-hardening/linux-privilege-escalation-checklist
+    - https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
+    - https://github.com/mzet-/linux-exploit-suggester
+    - https://github.com/diego-treitos/linux-smart-enumeration
+    - https://github.com/linted/linuxprivchecker
+    - https://github.com/rebootuser/LinEnum
+
+https://gtfobins.github.io/
+
+find / -type f -perm -04000 -ls 2>/dev/null - will list files that have SUID or SGID bits set
+
+unshadow passwd.txt shadow.txt > passwords.tx
+openssl passwd -1 -salt <salt> <password> - generate salted hash for a new password
+su <new account> - change account
+
+getcap -r / - list enabled capabilities
