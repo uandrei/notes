@@ -1,8 +1,25 @@
 OSINT
 
 SSL/TLS cert validation - http://crt.sh/ - good for identifying subdomains
+https://www.netcraft.com/ - OSINT
+Sublist3r - python DNS lister
 DNS queries: https://dnsdumpster.com/
 Public db of everything: https://www.shodan.io/
+theHarvester - people searching
+censys - search engine of all server and devices ever exposed
+
+Browsers:
+- TOR browser
+- Freenet
+- GNUnet
+- I2P
+- Retroshare
+
+Deep/dark web search:
+- exonera TOR
+- tor browser
+- 
+
 
 https://www.exploit-db.com/
 
